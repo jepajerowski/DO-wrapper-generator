@@ -1,2 +1,2 @@
 # DO-wrapper-generator
-HTML generator for digital object production.
+HTML generator for Digital Object production.
