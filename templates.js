@@ -668,6 +668,97 @@ const templateList = [
 </figure>
     `
   },
+
+{
+    name: "Career Fables logo",
+    fields: [],
+    html: `
+<figure class="news-article__figure border-light-gray third float-left plain border-bottom pb-3">
+  <div class="news-article__figure__image__wrapper">
+    <img src="/pb-assets/images/careers/career_fables_720x720.jpg" alt="Career Fables logo" class="news-article__figure__image mb-2">
+  </div>
+  <figcaption class="news-article__figure__caption">
+    <span class="text-sm text-gray letter-spacing-default">Career Fables are fictional stories to guide you in your real-life career journey. <span class="text-xxs text-uppercase">grmarc/iStock, adapted by C.&nbsp;Aycock/<cite>Science</cite></span></span>
+  </figcaption>
+
+  <div class="mt-2 d-flex justify-content-end btn--more__wrapper">
+    <a href="/topic/careers-overline/career-fables" class="btn btn--more animation-icon-shift"><span class="mini-title">View more</span><span aria-hidden="true" class="icon-arrow-right ml-2"></span></a>
+  </div>
+</figure>
+`
+  },
+{
+    name: "Experimental Error logo",
+    fields: [],
+    html: `
+<figure class="news-article__figure border-light-gray third float-left plain border-bottom pb-3">
+  <div class="news-article__figure__image__wrapper">
+    <img src="/pb-assets/images/careers/experimental_error_720x720.jpg" alt="Experimental Error logo" class="news-article__figure__image mb-2">
+  </div>
+  <figcaption class="news-article__figure__caption">
+    <span class="text-sm text-gray letter-spacing-default">Experimental Error is a column about the quirky, comical, and sometimes bizarre world of scientific training and careers, written by scientist and comedian Adam Ruben. <span class="text-xxs text-uppercase">Barmaleeva/Shutterstock, adapted by C.&nbsp;Aycock/<cite>Science</cite></span></span>
+  </figcaption>
+
+  <div class="mt-2 d-flex justify-content-end btn--more__wrapper">
+    <a href="/topic/careers-overline/experimental-error" class="btn btn--more animation-icon-shift"><span class="mini-title">View more</span><span aria-hidden="true" class="icon-arrow-right ml-2"></span></a>
+  </div>
+</figure>
+`
+  },
+{
+    name: "Letters to Young Scientists logo",
+    fields: [],
+    html: `
+<figure class="news-article__figure border-light-gray third float-left plain border-bottom pb-3">
+  <div class="news-article__figure__image__wrapper">
+    <img src="/pb-assets/images/careers/letters_to_young_scientists_720x720.jpg" alt="Letters to Young Scientists logo" class="news-article__figure__image mb-2">
+  </div>
+  <figcaption class="news-article__figure__caption">
+    <span class="text-sm text-gray letter-spacing-default">The team-written Letters to Young Scientists column offers training and career advice from within academia. <span class="text-xxs text-uppercase">eduardrobert/iStock, adapted by C.&nbsp;Aycock/<cite>Science</cite></span></span>
+  </figcaption>
+
+  <div class="mt-2 d-flex justify-content-end btn--more__wrapper">
+    <a href="/topic/careers-overline/letters-young-scientists" class="btn btn--more animation-icon-shift"><span class="mini-title">View more</span><span aria-hidden="true" class="icon-arrow-right ml-2"></span></a>
+  </div>
+</figure>
+`
+  },
+{
+    name: "Taken for Granted logo",
+    fields: [],
+    html: `
+<figure class="news-article__figure border-light-gray third float-left plain border-bottom pb-3">
+  <div class="news-article__figure__image__wrapper">
+    <img src="/pb-assets/images/careers/taken_for_granted_720x720.jpg" alt="Taken for Granted logo" class="news-article__figure__image mb-2">
+  </div>
+  <figcaption class="news-article__figure__caption">
+    <span class="text-sm text-gray letter-spacing-default">Taken for Granted is a column about training and career issues from scientific workforce expert Beryl Lieff Benderly. <span class="text-xxs text-uppercase">DenPotisev/iStock, adapted by C.&nbsp;Aycock/<cite>Science</cite></span></span>
+  </figcaption>
+
+  <div class="mt-2 d-flex justify-content-end btn--more__wrapper">
+    <a href="/topic/careers-overline/taken-granted" class="btn btn--more animation-icon-shift"><span class="mini-title">View more</span><span aria-hidden="true" class="icon-arrow-right ml-2"></span></a>
+  </div>
+</figure>
+`
+  },
+{
+    name: "Your Unicorn Career logo",
+    fields: [],
+    html: `
+<figure class="news-article__figure border-light-gray third float-left plain border-bottom pb-3">
+  <div class="news-article__figure__image__wrapper">
+    <img src="/pb-assets/images/careers/your_unicorn_career_720x720.jpg" alt="Your Unicorn Career logo" class="news-article__figure__image mb-2">
+  </div>
+  <figcaption class="news-article__figure__caption">
+    <span class="text-sm text-gray letter-spacing-default">Your Unicorn Career is an advice column about understanding your value and creating professional bliss by career consultant and professional speaker Alaina G. Levine. <span class="text-xxs text-uppercase">Oksanita/iStock, adapted by C.&nbsp;Aycock/<cite>Science</cite></span></span>
+  </figcaption>
+
+  <div class="mt-2 d-flex justify-content-end btn--more__wrapper">
+    <a href="/topic/careers-overline/your-unicorn-career" class="btn btn--more animation-icon-shift"><span class="mini-title">View more</span><span aria-hidden="true" class="icon-arrow-right ml-2"></span></a>
+  </div>
+</figure>
+`
+  },
   {
     name: "Video (YouTube)",
     fields: [
