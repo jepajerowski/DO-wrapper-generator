@@ -75,7 +75,7 @@ class FieldOptions extends React.Component {
 
   render() {
     const opts = ['', ...this.props.field.options].map((opt) =>
-      e('option', { value: opt }, opt));
+      e('option', { value: opt[1] }, opt[0]));
     return e('select', {
       value: this.props.value,
       onChange: (event) => this.props.onChange(event.target.value)

@@ -3,19 +3,21 @@ const templateList = [
     name: "Pull quote",
     fields: [
       { name: "Text", type: "textarea" },
-      { name: "Author name and affiliation" }
+      { name: "Speaker" },
+      { name: "Affiliation" },
     ],
     html: `
-<div class="quotation">
-  <img src="/specs/products/aaas/releasedAssets/images/quotation-mark.svg" alt="quotation mark" class="quotation__img">
-  <div class="quotation__text">
-    <p>
-{{{Text}}}
-    </p>
+<div class="text-black-gray text-decoration-none">
+  <div class="quotation bg-transparent">
+    <img src="/specs/products/aaas/releasedAssets/images/quotation-mark.svg" alt="quotation mark" class="quotation__img"/>
+    <div class="quotation__text">{{{Text}}}</div>
+    <ul class="quotation__source list-inline">
+      <li class="list-inline-item text-bold">
+        <strong class="font-weight-bold">{{{Speaker}}}</strong>
+      </li>
+      <li class="list-inline-item">{{{Affiliation}}}</li>
+    </ul>
   </div>
-  <ul class="quotation__source list-inline">
-    <li class="list-inline-item">{{{Author name and affiliation}}}</li>
-  </ul>
 </div>
     `
   },
@@ -29,6 +31,21 @@ const templateList = [
   <div class="bg-very-light-gray p-3">
     <span class="text-sm letter-spacing-default">{{{Text}}}</span>
   </div>
+</div>
+    `
+  },
+  {
+    name: "Sans serif text",
+    fields: [
+      {
+        name: "Text",
+        type: "textarea",
+        note: "Enclose bold text in a <strong> </strong> tag."
+      },
+    ],
+    html: `
+<div class="mb-4">
+    <span class="text-sm letter-spacing-default">{{{Text}}}</span>
 </div>
     `
   },
@@ -178,11 +195,13 @@ const templateList = [
       { name: "Content text", type: "textarea" }
     ],
     html: `
-<span class="font-weight-bold text-primary text-xxs text-uppercase">{{{Overline Text}}}</span>
-<h2 class="mb-1x"><span class="mr-2">{{{Title}}}</span></h2>
-<p>
+<div class="mb-2x">
+  <span class="font-weight-bold text-primary text-xxs text-uppercase">{{{Overline Text}}}</span>
+  <h2 class="mb-1x"><span class="mr-2">{{{Title}}}</span></h2>
+  <p>
 {{{Content text}}}
-</p>
+  </p>
+</div>
     `
   },
   {
@@ -196,7 +215,7 @@ const templateList = [
         { name: "Content text", type: "textarea" }
       ],
       html: `
-  <p><strong class="mr-1">{{{Title}}}</strong>{{{Content text}}}</p>
+  <p><strong class="mr-1 text-uppercase">{{{Title}}}</strong>{{{Content text}}}</p>
       `
     },
     html: `
@@ -209,9 +228,10 @@ const templateList = [
   {
     name: "Sidebar (Related Story box)",
     fields: [
-      { name: "Box Title", default: "RELATED STORY" },
+      { name: "Box Title", default: "Related story" },
       { name: "Title" },
-      { name: "By Author Name" },
+      { name: "Author Name" },
+      { name: "Author Page URL" },
       {
         name: "Text",
         type: "textarea",
@@ -220,9 +240,9 @@ const templateList = [
     ],
     html: `
 <div class="news-article__tracker bg-very-light-gray news-article__tracker--related-story px-1x pt-2 pb-1_5x pb-md-2x mb-2x border-left border-thick border-black-gray">
-  <span class="font-weight-bold text-primary text-xxs">{{{Box Title}}}</span>
+  <span class="font-weight-bold text-primary text-xxs text-uppercase">{{{Box Title}}}</span>
   <h2 class="my-0"><span class="mr-2">{{{Title}}}</span></h2>
-  <span class="text-gray text-xxs text-uppercase">{{{By Author Name}}}</span>
+  <span class="text-gray text-xxs text-uppercase">By <a href="{{{Author Page URL}}}" class="news-article__hero__bottom-meta-link" title="{{{Author Name}}}">{{{Author Name}}}</a></span>
   <div class="mt-2">
 {{{Text}}}
   </div>
@@ -232,7 +252,7 @@ const templateList = [
   {
     name: "In Focus (figure)",
     fields: [
-      { name: "Title", default: "IN FOCUS" },
+      { name: "Title", default: "In Focus" },
       { name: "Image URL" },
       { name: "Alt Text" },
       { name: "Figure Caption", type: "textarea" },
@@ -243,7 +263,7 @@ const templateList = [
   <h2 class="h4 title--decorated mb-1x"><span class="text-uppercase mr-2">{{{Title}}}</span></h2>
   <figure class="news-article__tracker news-article__figure plain my-0">
     <div class="news-article__figure__image__wrapper"><img class="news-article__figure__image mb-2" src="{{{Image URL}}}" alt="{{{Alt Text}}}" /></div>
-    <figcaption class="news-article__figure__caption text-sm letter-spacing-default">{{{Figure Caption}}}<span class="text-xxs ml-2">{{{Figure Credit}}}</span></figcaption>
+    <figcaption class="news-article__figure__caption text-sm letter-spacing-default">{{{Figure Caption}}}<span class="text-xxs text-uppercase ml-1">{{{Figure Credit}}}</span></figcaption>
   </figure>
 </div>
     `
@@ -276,7 +296,7 @@ const templateList = [
     ],
     html: `
 <h3>Q: {{{Question}}}</h3>
-<p><strong class="mr-1 sans-serif font-weight-bold">A:</strong>{{{Answer}}}</p>
+<p><strong class="sans-serif font-weight-bold">A:</strong>&nbsp;{{{Answer}}}</p>
     `
   },
   {
@@ -371,8 +391,20 @@ const templateList = [
     `
   },
   {
-    name: "Figure: Graphic, left side, half-col",
+    name: "Figure: Graphic",
     fields: [
+      {
+        name: "Position",
+        type: "options",
+        options: [
+          ["Column width", ""],
+          ["Half column, left", "half float-left"],
+          ["Half column, right", "half float-right"],
+          ["1/3 column, left", "third float-left"],
+          ["1/3 column, right", "third float-right"],
+        ],
+        default: ""
+      },
       { name: "Figure Title" },
       { name: "Image URL" },
       { name: "Alt Text" },
@@ -380,111 +412,74 @@ const templateList = [
       { name: "Credit Text" }
     ],
     html: `
-<figure class="news-article__figure border-light-gray half float-left">
+<figure class="news-article__figure border-light-gray {{{Position}}}">
   <figcaption class="news-article__figure__upper-caption">
     <h3 class="text-lg letter-spacing-default">{{{Figure Title}}}</h3>
     <p>{{{Figure Caption}}}</p>
   </figcaption>
   <img src="{{{Image URL}}}" alt="{{{Alt Text}}}" class="news-article__figure__image">
   <figcaption class="news-article__figure__caption mt-2">
-    <span class="text-xxs text-gray">{{{Credit Text}}}</span>
+    <span class="text-xxs text-gray text-uppercase">{{{Credit Text}}}</span>
   </figcaption>
 </figure>
     `
   },
   {
-    name: "Figure: Image, left side, half-col",
+    name: "Figure: Image",
     fields: [
+      {
+        name: "Position",
+        type: "options",
+        options: [
+          ["Column width", ""],
+          ["Half column, left", "half float-left"],
+          ["Half column, right", "half float-right"],
+          ["1/3 column, left", "third float-left"],
+          ["1/3 column, right", "third float-right"]
+        ],
+        default: ""
+      },
       { name: "Image URL" },
       { name: "Alt Text" },
       { name: "Figure Caption", type: "textarea" },
       { name: "Credit Text" }
     ],
     html: `
-<figure class="news-article__figure border-light-gray half float-left ">
+<figure class="news-article__figure border-light-gray {{{Position}}}">
   <div class="news-article__figure__image__wrapper">
     <img src="{{{Image URL}}}" alt="{{{Alt Text}}}" class="news-article__figure__image mb-2">
   </div>
   <figcaption class="news-article__figure__caption">
-    <span class="text-sm text-gray letter-spacing-default">{{{Figure Caption}}}<span class="text-xxs ml-2">{{{Credit Text}}}</span></span>
+    <span class="text-sm text-gray letter-spacing-default">{{{Figure Caption}}}<span class="text-xxs ml-1 text-uppercase">{{{Credit Text}}}</span></span>
   </figcaption>
 </figure>
     `
   },
   {
-    name: "Figure: Image, left side 1/3-col without caption (headshot)",
+    name: "Figure: Image, without caption (headshot)",
     fields: [
+      {
+        name: "Position",
+        type: "options",
+        options: [
+          ["Half column, left", "half float-left"],
+          ["Half column, right", "half float-right"],
+          ["1/3 column, left", "third float-left"],
+          ["1/3 column, right", "third float-right"]
+        ],
+        default: "third float-left"
+      },
       { name: "Image URL" },
       { name: "Alt Text" },
       { name: "Credit Text" }
     ],
     html: `
-<figure class="news-article__figure border-light-gray third float-left plain">
+<figure class="news-article__figure border-light-gray {{{Position}}} plain">
   <div class="news-article__figure__image__wrapper">
     <img src="{{{Image URL}}}" alt="{{{Alt Text}}}" class="news-article__figure__image mb-2">
   </div>
   <figcaption class="news-article__figure__caption">
-    <span class="text-xxs text-gray letter-spacing-default">{{{Credit Text}}}</span>
-  </figcaption>
-</figure>
-    `
-  },
-  {
-    name: "Figure: Image, right side, 1/3-col",
-    fields: [
-      { name: "Image URL" },
-      { name: "Alt Text" },
-      { name: "Figure Caption", type: "textarea" },
-      { name: "Credit Text" }
-    ],
-    html: `
-<figure class="news-article__figure border-light-gray third float-right ">
-  <div class="news-article__figure__image__wrapper">
-    <img src="{{{Image URL}}}" alt="{{{Alt Text}}}" class="news-article__figure__image mb-2">
-  </div>
-  <figcaption class="news-article__figure__caption">
-    <span class="text-sm text-gray letter-spacing-default">{{{Figure Caption}}}<span class="text-xxs ml-2">{{{Credit Text}}}</span></span>
-  </figcaption>
-</figure>
-    `
-  },
-  {
-    name: "Figure: Graphic, col-width",
-    fields: [
-      { name: "Figure Title" },
-      { name: "Image URL" },
-      { name: "Alt Text" },
-      { name: "Figure Caption", type: "textarea" },
-      { name: "Credit Text" }
-    ],
-    html: `
-<figure class="news-article__figure border-light-gray">
-  <figcaption class="news-article__figure__upper-caption">
-    <h3 class="text-lg letter-spacing-default">{{{Figure Title}}}</h3>
-    <p>{{{Figure Caption}}}</p>
-  </figcaption>
-  <img src="{{{Image URL}}}" alt="{{{Alt Text}}}" class="news-article__figure__image">
-  <figcaption class="news-article__figure__caption mt-2">
-    <span class="text-xxs text-gray">{{{Credit Text}}}</span>
-  </figcaption>
-</figure>
-    `
-  },
-  {
-    name: "Figure: Image, col-width",
-    fields: [
-      { name: "Image URL" },
-      { name: "Alt Text" },
-      { name: "Figure Caption", type: "textarea" },
-      { name: "Credit Text" }
-    ],
-    html: `
-<figure class="news-article__figure border-light-gray">
-  <div class="news-article__figure__image__wrapper">
-    <img src="{{{Image URL}}}" alt="{{{Alt Text}}}" class="news-article__figure__image mb-2">
-  </div>
-  <figcaption class="news-article__figure__caption">
-    <span class="text-sm text-gray letter-spacing-default">{{{Figure Caption}}}<span class="text-xxs ml-2">{{{Credit Text}}}</span></span>
+    <span class="text-xxs text-gray letter-spacing-default text-uppercase">{{{Credit Text}}}</span>
   </figcaption>
 </figure>
     `
@@ -504,7 +499,7 @@ const templateList = [
       <img src="{{{Image URL}}}" alt="{{{Alt Text}}}" class="news-article__figure__image mb-2">
     </div>
     <figcaption class="news-article__figure__caption">
-      <span class="text-sm text-gray letter-spacing-default">{{{Figure Caption}}} <span class="text-xxs letter-spacing-default">{{{Credit Text}}}</span></span>
+      <span class="text-sm text-gray letter-spacing-default">{{{Figure Caption}}} <span class="text-xxs letter-spacing-default text-uppercase">{{{Credit Text}}}</span></span>
     </figcaption>
   </figure>
 </div>
@@ -531,7 +526,7 @@ const templateList = [
     </div>
   </div>
   <figcaption class="news-article__figure__caption">
-    <span class="text-sm text-gray letter-spacing-default">{{{Figure Caption}}} <span class="text-xxs letter-spacing-default">{{{Credit Text}}}</span></span>
+    <span class="text-sm text-gray letter-spacing-default">{{{Figure Caption}}} <span class="text-xxs letter-spacing-default text-uppercase">{{{Credit Text}}}</span></span>
   </figcaption>
 </figure>
     `
@@ -546,14 +541,36 @@ const templateList = [
     ],
     html: `
 <div class="news-article__figure--container-width">
-  <figure class="news-article__figure border-light-gray  plain border-bottom pb-3">
+  <figure class="news-article__figure border-light-gray plain border-bottom pb-3">
     <div class="news-article__figure__image__wrapper">
       <img src="{{{Image URL}}}" alt="{{{Alt Text}}}" class="news-article__figure__image mb-2">
     </div>
     <figcaption class="news-article__figure__caption">
-      {{{Figure Caption}}} <span class="text-xxs text-gray letter-spacing-default">{{{Credit Text}}}</span>
+      <span class="text-sm text-gray letter-spacing-default">{{{Figure Caption}}} <span class="text-xxs text-uppercase">{{{Credit Text}}}</span></span>
     </figcaption>
   </figure>
+</div>
+    `
+  },
+  {
+    name: "Feature Article Figure: Full-width graphic",
+    fields: [
+      { name: "Image URL" },
+      { name: "Alt Text" },
+      { name: "Figure hed" },
+      { name: "Explainer text", type: "textarea" },
+      { name: "Credit Text" }
+    ],
+    html: `
+<div class="news-article__figure--page-width">
+   <figure class="news-article__figure border-light-gray">
+      <figcaption class="news-article__figure__upper-caption mb-1x">
+        <h3 class="text-lg letter-spacing-default">{{{Figure hed}}}</h3>
+        <p>{{{Explainer text}}}</p>
+    </figcaption>
+     <div class="news-article__figure__image__wrapper"><img class="news-article__figure__image mb-2" src="{{{Image URL}}}" alt="{{{Alt Text}}}" /></div>
+     <figcaption class="news-article__figure__caption"><span class="text-xxs text-uppercase text-gray">{{{Credit Text}}}</span></figcaption>
+   </figure>
 </div>
     `
   },
@@ -568,9 +585,14 @@ const templateList = [
         { name: "Credit Text" }
       ],
       html: `
+        <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <img src="{{{Image URL}}}" alt="{{{Alt Text}}}" data-caption="<span class="text-sm text-gray letter-spacing-default">{{{Figure Caption}}} <span class="text-xxs letter-spacing-default">{{{Credit Text}}}</span></span>" class="news-article__figure-img">
+            <div class="news-article__figure-img-wrapper">
+              <img src="{{{Image URL}}}" alt="{{{Alt Text}}}" class="news-article__figure-img">
+              <div class="news-article__figure-caption d-none"><span class="text-sm text-gray letter-spacing-default">{{{Figure Caption}}}<span class="text-xxs letter-spacing-default text-uppercase">{{{Credit Text}}}</span></span></div>
+            </div>
           </div>
+        </div>
       `
     },
     html: `
@@ -579,31 +601,42 @@ const templateList = [
   <div class="news-article__slideshow mb-2">
     <div class="swiper-container-wrapper">
       <div data-loop="true" data-items="1" data-slideby="1" data-autoheight="false" data-responsive="" data-speed="2000" data-autoplay="false" data-animation="slide" data-indicators="true" data-arrow="true" data-controls="true" data-stagepadding="0" data-label="Slideshow" class="swiper-container" data-pause-slide="Pause slideshow" data-play-slide="Play slideshow" data-go-to-slide="Go to slide:" data-next-slide="Go to next slide" data-prev-slide="Go to previous slide">
-        <div class="swiper-wrapper">
 {{{Child}}}
-        </div>
-        <div class="swiper-button-container">
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
-        </div>
+      </div>
+      <div class="swiper-button-container">
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
       </div>
     </div>
-    <figcaption class="border-light-gray pb-2"></figcaption>
-    <div class="swiper-pagination"></div>
-    <span id="afterSlideshow-vlb" tabindex="-1"></span>
+  </div>
+  <figcaption class="border-light-gray pb-2"></figcaption>
+  <div class="swiper-pagination"></div>
+  <span id="afterSlideshow-vlb" tabindex="-1"></span>
 </div>
     `
   },
   {
-    name: "Table Figure (half column, right side)",
+    name: "Table",
     fields: [
+      {
+        name: "Position",
+        type: "options",
+        options: [
+          ["Column width", ""],
+          ["Half column, left", "half float-left"],
+          ["Half column, right", "half float-right"],
+          ["1/3 column, left", "third float-left"],
+          ["1/3 column, right", "third float-right"]
+        ],
+        default: "half float-left"
+      },
       { name: "Figure Title" },
       { name: "Figure Caption", type: "textarea" },
       { name: "Credit Text" },
       { name: "Contents", type: "table" }
     ],
     html: `
-<figure class="news-article__figure border-light-gray half float-right">
+<figure class="news-article__figure border-light-gray {{{Position}}}">
   <figcaption class="news-article__figure__upper-caption">
     <h3 class="text-lg letter-spacing-default">{{{Figure Title}}}</h3>
     <p>{{{Figure Caption}}}</p>
@@ -615,7 +648,23 @@ const templateList = [
       </tbody>
     </table>
   </div>
-  <figcaption class="news-article__figure__caption mt-2"><span class="text-xxs text-gray">{{{Credit Text}}}</span></figcaption>
+  <figcaption class="news-article__figure__caption mt-2"><span class="text-xxs text-gray text-uppercase">{{{Credit Text}}}</span></figcaption>
+</figure>
+    `
+  },
+    {
+    name: "Static page image",
+    fields: [
+      { name: "Image URL" },
+      { name: "Alt Text" },
+      { name: "Credit Text (optional)" }
+    ],
+    html: `
+<figure class="mb-1x">
+ <div class="figure__wrapper">
+  <img src="{{{Image URL}}}" alt="{{{Alt Text}}}" class="w-100">
+ <figcaption class="mt-2 text-xxs text-uppercase text-gray sans-serif">{{{Credit Text (optional)}}}</figcaption>
+ </div>
 </figure>
     `
   },
@@ -627,6 +676,67 @@ const templateList = [
     html: `
 <div class="media-wrap--16x9 mb-4">
   <iframe src="https://www.youtube.com/embed/{{{Video ID}}}" width="100%" frameborder="0" allowfullscreen="allowfullscreen" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+</div>
+    `
+  },
+  {
+    name: "Video (Brightcove)",
+    fields: [
+      { name: "Video ID" }
+    ],
+    html: `
+<div style="position: relative; display: block; max-width: 100%;" class="my-3">
+  <div style="padding-top: 56.25%;">
+    <iframe src="https://players.brightcove.net/53038991001/Hyrjt3B7x_default/index.html?videoId={{{Video ID}}}" allowfullscreen webkitallowfullscreen mozallowfullscreen style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;">
+    </iframe>
+  </div>
+</div>
+    `
+  },
+  {
+    name: "Audio",
+    fields: [
+      { name: "Audio URL" },
+    ],
+    html: `
+<div class="mb-1x mt-2x">
+  <div class="audio-player larger-icons" data-audio="{{{Audio URL}}}">
+    <div class="audio-player__row d-flex align-items-center">
+      <button role="button" class="btn audio-player__trigger">
+        <i class="icon-play audio-player__trigger-play"></i>
+        <i class="icon-pause audio-player__trigger-pause"></i>
+      </button>
+      <div class="audio-player__navigation d-none d-sm-flex align-items-center mr-3 ml-1">
+        <button role="button" class="btn audio-player__navigation-backward px-1 mr-1">
+          <i class="icon-media-backward"></i>
+        </button>
+        <button role="button" class="btn audio-player__navigation-forward px-1">
+          <i class="icon-media-forward"></i>
+        </button>
+      </div>
+      <div class="audio-player__progress">
+        <div class="audio-player__progress-buffer"></div>
+        <div class="audio-player__progress-play"></div>
+        <div class="audio-player__progress-tooltip text-uppercase text-xss"></div>
+        <label for="audio-progress-39" class="sr-only"></label>
+        <input id="audio-progress-39" type="range" name="track" max="100" value="50" class="audio-player__progress-current" /> 
+      </div>
+      <div class="audio-player__volume">
+        <button class="btn audio-player__volume-btn">
+          <i class="icon-soundon audio-player__volume-btn-on"></i>
+          <i class="icon-soundoff audio-player__volume-btn-off"></i>
+        </button>
+        <div class="audio-player__volume-control">
+          <label for="volume-control-39" class="sr-only"></label>
+          <input id="volume-control-39" type="range" name="track" min="0.0" max="1.0" value="0.5" step="0.1" class="audio-player__volume-control-slider" /> 
+        </div>
+      </div>
+      <div class="audio-player__time d-flex text-xxs text-dark-gray">
+        <div class="audio-player__time-current border-right pr-2 mr-2">00:00</div>
+        <div class="audio-player__time-total"></div>
+      </div>
+    </div>
+  </div>
 </div>
     `
   }
