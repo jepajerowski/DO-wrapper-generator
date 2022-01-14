@@ -107,7 +107,7 @@ class FieldTable extends React.Component {
       header = false;
       out += '<tr>';
       for (const item of row) {
-        out += `<${tag}>${item}</${tag}>`;
+        out += `<${tag}>${item?item:''}</${tag}>`;
       }
       out += '</tr>\n';
     }
