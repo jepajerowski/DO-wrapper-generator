@@ -223,11 +223,11 @@ const templateList = [
     fields: [
       { name: "Overline Text" },
       { name: "Title" },
-      { name: "Content text", type: "textarea" },
       { name: "Image URL" },
       { name: "Alt Text" },
       { name: "Figure Caption", type: "textarea" },
-      { name: "Credit Text" }
+      { name: "Credit Text" },
+      { name: "Content text", type: "textarea" },
     ],
     html: `
 <div class="mb-2x">
