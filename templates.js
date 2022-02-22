@@ -796,27 +796,36 @@ const templateList = [
   {
     name: "Video (Brightcove)",
     fields: [
-      { name: "Video ID" }
-    ],
-    html: `
-<div style="position: relative; display: block; max-width: 100%;" class="my-3">
-  <div style="padding-top: 56.25%;">
-    <iframe src="https://players.brightcove.net/53038991001/Hyrjt3B7x_default/index.html?videoId={{{Video ID}}}" allowfullscreen webkitallowfullscreen mozallowfullscreen style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;">
-    </iframe>
-  </div>
-</div>
-    `
-  },
-  {
-    name: "Video (Brightcove) with caption/credit",
-    fields: [
       { name: "Video ID" },
+      {
+        name: "Aspect Ratio",
+        type: "options",
+        options: [
+          ["16:9", "56.25"],
+          ["9:16 (vertical)", "177.778"],
+          ["1:1 (square)", "100"]
+        ],
+        default: "56.25"
+      },
+      {
+        name: "Position",
+        type: "options",
+        options: [
+          ["Column width", ""],
+          ["Half column, left", " half float-left"],
+          ["Half column, right", " half float-right"],
+          ["1/3 column, left", " third float-left"],
+          ["1/3 column, right", " third float-right"]
+        ],
+        default: "",
+        note: "Square and vertical videos should be half-col or 1/3-col."
+      },
       {
         name: "Is there a caption?",
         type: "options",
         options: [
-          ["Just credit", " plain"],
-          ["Caption and credit", ""],
+          ["No", " plain"],
+          ["Yes", ""],
         ],
         default: " plain"
       },
@@ -825,10 +834,10 @@ const templateList = [
     ],
     html: `
 
-<figure class="news-article__figure border-light-gray{{{Is there a caption?}}}">
+<figure class="news-article__figure border-light-gray{{{Is there a caption?}}}{{{Position}}}">
   <div class="news-article__figure__image__wrapper">
     <div class="mb-2 news-article__figure__image" style="position: relative; display: block; max-width: 100%;">
-      <div style="padding-top: 56.25%;">
+      <div style="padding-top: {{{Aspect Ratio}}}%;">
     <iframe src="https://players.brightcove.net/53038991001/Hyrjt3B7x_default/index.html?videoId={{{Video ID}}}" allowfullscreen webkitallowfullscreen mozallowfullscreen style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;">
     </iframe>
       </div>
@@ -842,46 +851,45 @@ const templateList = [
     name: "Audio",
     fields: [
       { name: "Audio URL" },
+      { name: "Audio Length", note:"Format as mm:ss, e.g. 01:45" },
     ],
     html: `
 <div class="mb-1x mt-2x">
-  <div class="audio-player larger-icons" data-audio="{{{Audio URL}}}">
-    <div class="audio-player__row d-flex align-items-center">
-      <button role="button" class="btn audio-player__trigger">
-        <i class="icon-play audio-player__trigger-play"></i>
-        <i class="icon-pause audio-player__trigger-pause"></i>
-      </button>
-      <div class="audio-player__navigation d-none d-sm-flex align-items-center mr-3 ml-1">
-        <button role="button" class="btn audio-player__navigation-backward px-1 mr-1">
-          <i class="icon-media-backward"></i>
-        </button>
-        <button role="button" class="btn audio-player__navigation-forward px-1">
-          <i class="icon-media-forward"></i>
-        </button>
-      </div>
-      <div class="audio-player__progress">
-        <div class="audio-player__progress-buffer"></div>
-        <div class="audio-player__progress-play"></div>
-        <div class="audio-player__progress-tooltip text-uppercase text-xss"></div>
-        <label for="audio-progress-39" class="sr-only"></label>
-        <input id="audio-progress-39" type="range" name="track" max="100" value="50" class="audio-player__progress-current" /> 
-      </div>
-      <div class="audio-player__volume">
-        <button class="btn audio-player__volume-btn">
-          <i class="icon-soundon audio-player__volume-btn-on"></i>
-          <i class="icon-soundoff audio-player__volume-btn-off"></i>
-        </button>
-        <div class="audio-player__volume-control">
-          <label for="volume-control-39" class="sr-only"></label>
-          <input id="volume-control-39" type="range" name="track" min="0.0" max="1.0" value="0.5" step="0.1" class="audio-player__volume-control-slider" /> 
+    <div class="audio-player larger-icons" data-audio="{{{Audio URL}}}">
+        <div class="audio-player__row d-flex align-items-center">
+          <button class="btn audio-player__trigger" title="Play" role="button">
+            <i class="icon-play audio-player__trigger-play"></i><span class="sr-only audio-player__trigger-play-label">Play</span>
+            <i class="icon-pause audio-player__trigger-pause"></i><span class="sr-only audio-player__trigger-pause-label">Pause</span>
+          </button>
+            <div class="audio-player__navigation d-none d-sm-flex align-items-center mr-3 ml-1">
+              <button class="btn audio-player__navigation-backward px-1 mr-1" title="Go ten seconds backward" role="button">
+                <i class="icon-media-backward"><span>Skip backwards</span></i><span class="sr-only">Go ten seconds backward</span>
+              </button>
+              <button class="btn audio-player__navigation-forward px-1" title="Go ten seconds forward" role="button">
+                <i class="icon-media-forward"><span>Skip forwards</span></i><span class="sr-only">Go ten seconds forward</span>
+              </button>
+            </div>
+            <div class="audio-player__progress">
+                <div class="audio-player__progress-buffer">&nbsp;</div>
+                <div class="audio-player__progress-play">&nbsp;</div>
+                <div class="audio-player__progress-tooltip text-uppercase text-xss">&nbsp;</div>
+                <label class="sr-only" for="audio-progress-38">Progress</label><input id="audio-progress-38" class="audio-player__progress-current" max="100" name="track" type="range" value="50" />
+            </div>
+            <div class="audio-player__volume">
+              <button class="btn audio-player__volume-btn" title="Mute">
+                <i class="icon-soundon audio-player__volume-btn-on"></i><span class="sr-only audio-player__volume-btn-on-label">Mute</span>
+                <i class="icon-soundoff audio-player__volume-btn-off"></i><span class="sr-only audio-player__volume-btn-off-label">Unmute</span>
+              </button>
+                <div class="audio-player__volume-control">
+                  <label class="sr-only" for="volume-control-38">Volume is at 50%</label><input id="volume-control-38" class="audio-player__volume-control-slider" max="1.0" min="0.0" name="track" step="0.1" type="range" value="0.5" />
+                </div>
+            </div>
+            <div class="audio-player__time d-flex text-xxs text-dark-gray">
+                <div class="audio-player__time-current border-right pr-2 mr-2">00:00</div>
+                <div class="audio-player__time-total">{{{Audio Length}}}</div>
+            </div>
         </div>
-      </div>
-      <div class="audio-player__time d-flex text-xxs text-dark-gray">
-        <div class="audio-player__time-current border-right pr-2 mr-2">00:00</div>
-        <div class="audio-player__time-total"></div>
-      </div>
     </div>
-  </div>
 </div>
     `
   }
