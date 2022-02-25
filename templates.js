@@ -866,40 +866,38 @@ const templateList = [
     ],
     html: `
 <figure class="news-article__figure border-light-gray{{{Is there a caption?}}}">
-    <div class="mb-1x mt-2">
-        <div class="audio-player larger-icons" data-audio="{{{Audio URL}}}">
-            <div class="audio-player__row d-flex align-items-center">
-              <button class="btn audio-player__trigger" title="Play" role="button">
+    <div class="audio-player larger-icons mb-1x mt-2" data-audio="{{{Audio URL}}}">
+        <div class="audio-player__row d-flex align-items-center">
+            <button class="btn audio-player__trigger" title="Play" role="button">
                 <i class="icon-play audio-player__trigger-play"></i><span class="sr-only audio-player__trigger-play-label">Play</span>
                 <i class="icon-pause audio-player__trigger-pause"></i><span class="sr-only audio-player__trigger-pause-label">Pause</span>
-              </button>
-                <div class="audio-player__navigation d-none d-sm-flex align-items-center mr-3 ml-1">
-                  <button class="btn audio-player__navigation-backward px-1 mr-1" title="Go ten seconds backward" role="button">
+            </button>
+            <div class="audio-player__navigation d-none d-sm-flex align-items-center mr-3 ml-1">
+                <button class="btn audio-player__navigation-backward px-1 mr-1" title="Go ten seconds backward" role="button">
                     <i class="icon-media-backward"><span>Skip backwards</span></i><span class="sr-only">Go ten seconds backward</span>
-                  </button>
-                  <button class="btn audio-player__navigation-forward px-1" title="Go ten seconds forward" role="button">
+                </button>
+                <button class="btn audio-player__navigation-forward px-1" title="Go ten seconds forward" role="button">
                     <i class="icon-media-forward"><span>Skip forwards</span></i><span class="sr-only">Go ten seconds forward</span>
-                  </button>
-                </div>
-                <div class="audio-player__progress">
-                    <div class="audio-player__progress-buffer">&nbsp;</div>
-                    <div class="audio-player__progress-play">&nbsp;</div>
-                    <div class="audio-player__progress-tooltip text-uppercase text-xss">&nbsp;</div>
-                    <label class="sr-only" for="audio-progress-38">Progress</label><input id="audio-progress-38" class="audio-player__progress-current" max="100" name="track" type="range" value="50" />
-                </div>
-                <div class="audio-player__volume">
-                  <button class="btn audio-player__volume-btn" title="Mute">
+                </button>
+            </div>
+            <div class="audio-player__progress">
+                <div class="audio-player__progress-buffer">&nbsp;</div>
+                <div class="audio-player__progress-play">&nbsp;</div>
+                <div class="audio-player__progress-tooltip text-uppercase text-xss">&nbsp;</div>
+                <label class="sr-only" for="audio-progress-38">Progress</label><input id="audio-progress-38" class="audio-player__progress-current" max="100" name="track" type="range" value="50" />
+            </div>
+            <div class="audio-player__volume">
+                <button class="btn audio-player__volume-btn" title="Mute">
                     <i class="icon-soundon audio-player__volume-btn-on"></i><span class="sr-only audio-player__volume-btn-on-label">Mute</span>
                     <i class="icon-soundoff audio-player__volume-btn-off"></i><span class="sr-only audio-player__volume-btn-off-label">Unmute</span>
-                  </button>
-                    <div class="audio-player__volume-control">
-                      <label class="sr-only" for="volume-control-38">Volume is at 50%</label><input id="volume-control-38" class="audio-player__volume-control-slider" max="1.0" min="0.0" name="track" step="0.1" type="range" value="0.5" />
-                    </div>
+                </button>
+                <div class="audio-player__volume-control">
+                    <label class="sr-only" for="volume-control-38">Volume is at 50%</label><input id="volume-control-38" class="audio-player__volume-control-slider" max="1.0" min="0.0" name="track" step="0.1" type="range" value="0.5" />
                 </div>
-                <div class="audio-player__time d-flex text-xxs text-dark-gray">
-                    <div class="audio-player__time-current border-right pr-2 mr-2">00:00</div>
-                    <div class="audio-player__time-total">{{{Audio Length}}}</div>
-                </div>
+            </div>
+            <div class="audio-player__time d-flex text-xxs text-dark-gray">
+                <div class="audio-player__time-current border-right pr-2 mr-2">00:00</div>
+                <div class="audio-player__time-total">{{{Audio Length}}}</div>
             </div>
         </div>
     </div>
