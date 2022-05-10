@@ -238,7 +238,7 @@ const templateList = [
     <img src="{{{Image URL}}}" alt="{{{Alt Text}}}" class="news-article__figure__image mb-2">
   </div>
   <figcaption class="news-article__figure__caption">
-    <span class="text-sm text-gray letter-spacing-default">{{{Figure Caption}}}<span class="text-xxs ml-1 text-uppercase">{{{Credit Text}}}</span></span>
+    <span class="text-sm text-gray letter-spacing-default">{{{Figure Caption}}}<span class="text-xxs ml-2 text-uppercase">{{{Credit Text}}}</span></span>
   </figcaption>
 </figure>
   <p>
@@ -306,7 +306,7 @@ const templateList = [
   <h2 class="h4 title--decorated mb-1x"><span class="text-uppercase mr-2">{{{Title}}}</span></h2>
   <figure class="news-article__tracker news-article__figure plain my-0">
     <div class="news-article__figure__image__wrapper"><img class="news-article__figure__image mb-2" src="{{{Image URL}}}" alt="{{{Alt Text}}}" /></div>
-    <figcaption class="news-article__figure__caption text-sm letter-spacing-default">{{{Figure Caption}}}<span class="text-xxs text-uppercase ml-1">{{{Figure Credit}}}</span></figcaption>
+    <figcaption class="news-article__figure__caption text-sm letter-spacing-default">{{{Figure Caption}}}<span class="text-xxs text-uppercase ml-2">{{{Figure Credit}}}</span></figcaption>
   </figure>
 </div>
     `
@@ -452,7 +452,7 @@ const templateList = [
   </figcaption>
   <img src="{{{Image URL}}}" alt="{{{Alt Text}}}" class="news-article__figure__image">
   <figcaption class="news-article__figure__caption mt-2">
-    <span class="text-xxs text-gray text-uppercase">{{{Credit Text}}}</span>
+    <span class="text-sm text-gray letter-spacing-default"><span class="text-xxs text-uppercase">{{{Credit Text}}}</span></span>
   </figcaption>
 </figure>
     `
@@ -483,7 +483,7 @@ const templateList = [
     <img src="{{{Image URL}}}" alt="{{{Alt Text}}}" class="news-article__figure__image mb-2">
   </div>
   <figcaption class="news-article__figure__caption">
-    <span class="text-sm text-gray letter-spacing-default">{{{Figure Caption}}}<span class="text-xxs ml-1 text-uppercase">{{{Credit Text}}}</span></span>
+    <span class="text-sm text-gray letter-spacing-default">{{{Figure Caption}}}<span class="text-xxs ml-2 text-uppercase">{{{Credit Text}}}</span></span>
   </figcaption>
 </figure>
     `
@@ -513,7 +513,7 @@ const templateList = [
     <img src="{{{Image URL}}}" alt="{{{Alt Text}}}" class="news-article__figure__image mb-2">
   </div>
   <figcaption class="news-article__figure__caption">
-    <span class="text-xxs text-gray letter-spacing-default text-uppercase">{{{Credit Text}}}</span>
+    <span class="text-sm text-gray letter-spacing-default"><span class="text-xxs text-uppercase">{{{Credit Text}}}</span></span>
   </figcaption>
 </figure>
     `
@@ -542,7 +542,7 @@ const templateList = [
       <img src="{{{Image URL}}}" alt="{{{Alt Text}}}" class="news-article__figure__image mb-2">
     </div>
     <figcaption class="news-article__figure__caption">
-      <span class="text-sm text-gray letter-spacing-default">{{{Figure Caption}}} <span class="text-xxs ml-1 text-uppercase">{{{Credit Text}}}</span></span>
+      <span class="text-sm text-gray letter-spacing-default">{{{Figure Caption}}}<span class="text-xxs ml-2 text-uppercase">{{{Credit Text}}}</span></span>
     </figcaption>
   </figure>
 </div>
@@ -574,7 +574,9 @@ const templateList = [
         <p>{{{Graphic explainer}}}</p>
     </figcaption>
      <div class="news-article__figure__image__wrapper"><img class="news-article__figure__image mb-2" src="{{{Image URL}}}" alt="{{{Alt Text}}}" /></div>
-     <figcaption class="news-article__figure__caption"><span class="text-xxs text-uppercase text-gray">{{{Credit Text}}}</span></figcaption>
+     <figcaption class="news-article__figure__caption">
+    <span class="text-sm text-gray letter-spacing-default"><span class="text-xxs text-uppercase">{{{Credit Text}}}</span></span>
+     </figcaption>
    </figure>
 </div>
     `
@@ -838,19 +840,19 @@ const templateList = [
   <div class="news-article__figure__image__wrapper">
     <div class="mb-2 news-article__figure__image" style="position: relative; display: block; max-width: 100%;">
       <div style="padding-top: {{{Aspect Ratio}}}%;">
-    <iframe src="https://players.brightcove.net/53038991001/Hyrjt3B7x_default/index.html?videoId={{{Video ID}}}" allowfullscreen webkitallowfullscreen mozallowfullscreen style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;">
+    <iframe src="https://players.brightcove.net/53038991001/a7scWzO7u_default/index.html?videoId={{{Video ID}}}" allowfullscreen webkitallowfullscreen mozallowfullscreen style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;">
     </iframe>
       </div>
     </div>
   </div>
-  <figcaption class="news-article__figure__caption"><span class="text-sm text-gray letter-spacing-default">{{{Caption}}}<span class="text-xxs ml-1 text-uppercase">{{{Credit Text}}}</span></span></figcaption>
+  <figcaption class="news-article__figure__caption"><span class="text-sm text-gray letter-spacing-default">{{{Caption}}}<span class="text-xxs ml-2 text-uppercase">{{{Credit Text}}}</span></span></figcaption>
 </figure>
     `
   },
   {
     name: "Audio",
     fields: [
-      { name: "Audio URL" },
+      { name: "Audio URL", note:"Whenever possible, audio should be hosted on an external service such as Libsyn. If the audio is hosted in Atypon as a file uploaded to the Digital Object, the URL path should follow this format: /do/[doi]/full/[filename] e.g. /do/10.1126/science.ada1713/full/_20220224_bocon_toadfish.mp3" },
       { name: "Audio Length", note:"Format as mm:ss, e.g. 01:45" },
       {
         name: "Is there a caption?",
@@ -901,7 +903,7 @@ const templateList = [
             </div>
         </div>
     </div>
-    <figcaption class="news-article__figure__caption"><span class="text-sm text-gray letter-spacing-default">{{{Caption}}}<span class="text-xxs ml-1 text-uppercase">{{{Credit Text}}}</span></span></figcaption>
+    <figcaption class="news-article__figure__caption"><span class="text-sm text-gray letter-spacing-default">{{{Caption}}}<span class="text-xxs ml-2 text-uppercase">{{{Credit Text}}}</span></span></figcaption>
 </figure>
     `
   }
