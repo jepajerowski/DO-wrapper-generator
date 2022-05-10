@@ -852,7 +852,7 @@ const templateList = [
   {
     name: "Audio",
     fields: [
-      { name: "Audio URL", note:"Whenever possible, audio should be hosted on an external service such as Libsyn. If the audio is hosted in Atypon as a file uploaded to the Digital Object, the URL path should follow this format: /do/[doi]/full/[filename] e.g. /do/10.1126/science.ada1713/full/_20220224_bocon_toadfish.mp3" },
+      { name: "Audio URL", note:"Whenever possible, audio should be hosted on an external service such as Libsyn. If the audio is uploaded to the Digital Object on Atypon, the URL path should follow this format:<br>/do/<strong style="color:red;">[doi]</strong>/full/<strong style="color:red;">[filename]</strong><br>E.g. /do/<strong style="color:red;">10.1126/science.ada1713</strong>/full/<strong style="color:red;">_20220224_bocon_toadfish.mp3</strong>" },
       { name: "Audio Length", note:"Format as mm:ss, e.g. 01:45" },
       {
         name: "Is there a caption?",
