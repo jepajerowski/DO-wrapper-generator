@@ -236,7 +236,7 @@ const templateList = [
   <h2 class="mb-1x"><span class="mr-2">{{{Title}}}</span></h2>
   <figure class="news-article__figure border-light-gray {{{Position}}}">
   <div class="news-article__figure__image__wrapper">
-    <img src="/admin/dopub/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" class="news-article__figure__image mb-2">
+    <img src="/do/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" class="news-article__figure__image mb-2">
   </div>
   <figcaption class="news-article__figure__caption">
     <span class="text-sm text-gray letter-spacing-default">{{{Figure Caption}}}<span class="text-xxs ml-2 text-uppercase">{{{Credit Text}}}</span></span>
@@ -307,7 +307,7 @@ const templateList = [
 <div class="news-article__tracker bg-very-light-gray px-1x py-1_5x mb-2x">
   <h2 class="h4 title--decorated mb-1x"><span class="text-uppercase mr-2">{{{Title}}}</span></h2>
   <figure class="news-article__tracker news-article__figure plain my-0">
-    <div class="news-article__figure__image__wrapper"><img class="news-article__figure__image mb-2" src="/admin/dopub/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" /></div>
+    <div class="news-article__figure__image__wrapper"><img class="news-article__figure__image mb-2" src="/do/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" /></div>
     <figcaption class="news-article__figure__caption text-sm letter-spacing-default">{{{Figure Caption}}}<span class="text-xxs text-uppercase ml-2">{{{Figure Credit}}}</span></figcaption>
   </figure>
 </div>
@@ -453,7 +453,7 @@ const templateList = [
     <h3 class="text-lg letter-spacing-default">{{{Graphic hed}}}</h3>
     <p>{{{Graphic explainer}}}</p>
   </figcaption>
-  <img src="/admin/dopub/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" class="news-article__figure__image">
+  <img src="/do/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" class="news-article__figure__image">
   <figcaption class="news-article__figure__caption mt-2">
     <span class="text-sm text-gray letter-spacing-default"><span class="text-xxs text-uppercase">{{{Credit Text}}}</span></span>
   </figcaption>
@@ -484,7 +484,7 @@ const templateList = [
     html: `
 <figure class="news-article__figure border-light-gray {{{Position}}}">
   <div class="news-article__figure__image__wrapper">
-    <img src="/admin/dopub/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" class="news-article__figure__image mb-2">
+    <img src="/do/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" class="news-article__figure__image mb-2">
   </div>
   <figcaption class="news-article__figure__caption">
     <span class="text-sm text-gray letter-spacing-default">{{{Figure Caption}}}<span class="text-xxs ml-2 text-uppercase">{{{Credit Text}}}</span></span>
@@ -515,7 +515,7 @@ const templateList = [
     html: `
 <figure class="news-article__figure border-light-gray {{{Position}}} plain">
   <div class="news-article__figure__image__wrapper">
-    <img src="/admin/dopub/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" class="news-article__figure__image mb-2">
+    <img src="/do/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" class="news-article__figure__image mb-2">
   </div>
   <figcaption class="news-article__figure__caption">
     <span class="text-sm text-gray letter-spacing-default"><span class="text-xxs text-uppercase">{{{Credit Text}}}</span></span>
@@ -545,7 +545,7 @@ const templateList = [
 <div class="{{{Width}}}">
   <figure class="news-article__figure border-light-gray plain border-bottom pb-3">
     <div class="news-article__figure__image__wrapper">
-      <img src="/admin/dopub/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" class="news-article__figure__image mb-2">
+      <img src="/do/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" class="news-article__figure__image mb-2">
     </div>
     <figcaption class="news-article__figure__caption">
       <span class="text-sm text-gray letter-spacing-default">{{{Figure Caption}}}<span class="text-xxs ml-2 text-uppercase">{{{Credit Text}}}</span></span>
@@ -580,7 +580,7 @@ const templateList = [
         <h3 class="text-lg letter-spacing-default">{{{Graphic hed}}}</h3>
         <p>{{{Graphic explainer}}}</p>
     </figcaption>
-     <div class="news-article__figure__image__wrapper"><img class="news-article__figure__image mb-2" src="/admin/dopub/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" /></div>
+     <div class="news-article__figure__image__wrapper"><img class="news-article__figure__image mb-2" src="/do/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" /></div>
      <figcaption class="news-article__figure__caption">
     <span class="text-sm text-gray letter-spacing-default"><span class="text-xxs text-uppercase">{{{Credit Text}}}</span></span>
      </figcaption>
@@ -629,7 +629,7 @@ const templateList = [
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <div class="news-article__figure-img-wrapper">
-              <img src="/admin/dopub/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" class="news-article__figure-img">
+              <img src="/do/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" class="news-article__figure-img">
               <div class="news-article__figure-caption d-none"><span class="text-sm text-gray letter-spacing-default">{{{Figure Caption}}}<span class="text-xxs text-uppercase">{{{Credit Text}}}</span></span></div>
             </div>
           </div>
@@ -707,7 +707,7 @@ const templateList = [
     html: `
 <figure class="mb-1x">
  <div class="figure__wrapper">
-  <img src="/admin/dopub/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" class="w-100">
+  <img src="/do/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" class="w-100">
  <figcaption class="mt-2 text-xxs text-uppercase text-gray sans-serif">{{{Credit Text (optional)}}}</figcaption>
  </div>
 </figure>
