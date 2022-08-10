@@ -223,7 +223,8 @@ const templateList = [
     fields: [
       { name: "Overline Text" },
       { name: "Title" },
-      { name: "Image URL" },
+      { name: "Article DOI" },
+      { name: "Image file name",  note: "File names must be lowercase." },
       { name: "Alt Text" },
       { name: "Figure Caption", type: "textarea" },
       { name: "Credit Text" },
@@ -235,7 +236,7 @@ const templateList = [
   <h2 class="mb-1x"><span class="mr-2">{{{Title}}}</span></h2>
   <figure class="news-article__figure border-light-gray {{{Position}}}">
   <div class="news-article__figure__image__wrapper">
-    <img src="{{{Image URL}}}" alt="{{{Alt Text}}}" class="news-article__figure__image mb-2">
+    <img src="/admin/dopub/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" class="news-article__figure__image mb-2">
   </div>
   <figcaption class="news-article__figure__caption">
     <span class="text-sm text-gray letter-spacing-default">{{{Figure Caption}}}<span class="text-xxs ml-2 text-uppercase">{{{Credit Text}}}</span></span>
@@ -296,7 +297,8 @@ const templateList = [
     name: "In Focus (figure)",
     fields: [
       { name: "Title", default: "In Focus" },
-      { name: "Image URL" },
+      { name: "Article DOI" },
+      { name: "Image file name",  note: "File names must be lowercase." },
       { name: "Alt Text" },
       { name: "Figure Caption", type: "textarea" },
       { name: "Figure Credit" }
@@ -305,7 +307,7 @@ const templateList = [
 <div class="news-article__tracker bg-very-light-gray px-1x py-1_5x mb-2x">
   <h2 class="h4 title--decorated mb-1x"><span class="text-uppercase mr-2">{{{Title}}}</span></h2>
   <figure class="news-article__tracker news-article__figure plain my-0">
-    <div class="news-article__figure__image__wrapper"><img class="news-article__figure__image mb-2" src="{{{Image URL}}}" alt="{{{Alt Text}}}" /></div>
+    <div class="news-article__figure__image__wrapper"><img class="news-article__figure__image mb-2" src="/admin/dopub/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" /></div>
     <figcaption class="news-article__figure__caption text-sm letter-spacing-default">{{{Figure Caption}}}<span class="text-xxs text-uppercase ml-2">{{{Figure Credit}}}</span></figcaption>
   </figure>
 </div>
@@ -440,7 +442,8 @@ const templateList = [
       },
       { name: "Graphic hed" },
       { name: "Graphic explainer", type: "textarea" },
-      { name: "Image URL" },
+      { name: "Article DOI" },
+      { name: "Image file name",  note: "File names must be lowercase." },
       { name: "Alt Text" },
       { name: "Credit Text" }
     ],
@@ -450,7 +453,7 @@ const templateList = [
     <h3 class="text-lg letter-spacing-default">{{{Graphic hed}}}</h3>
     <p>{{{Graphic explainer}}}</p>
   </figcaption>
-  <img src="{{{Image URL}}}" alt="{{{Alt Text}}}" class="news-article__figure__image">
+  <img src="/admin/dopub/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" class="news-article__figure__image">
   <figcaption class="news-article__figure__caption mt-2">
     <span class="text-sm text-gray letter-spacing-default"><span class="text-xxs text-uppercase">{{{Credit Text}}}</span></span>
   </figcaption>
@@ -472,7 +475,8 @@ const templateList = [
         ],
         default: ""
       },
-      { name: "Image URL" },
+      { name: "Article DOI" },
+      { name: "Image file name",  note: "File names must be lowercase." },
       { name: "Alt Text" },
       { name: "Figure Caption", type: "textarea" },
       { name: "Credit Text" }
@@ -480,7 +484,7 @@ const templateList = [
     html: `
 <figure class="news-article__figure border-light-gray {{{Position}}}">
   <div class="news-article__figure__image__wrapper">
-    <img src="{{{Image URL}}}" alt="{{{Alt Text}}}" class="news-article__figure__image mb-2">
+    <img src="/admin/dopub/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" class="news-article__figure__image mb-2">
   </div>
   <figcaption class="news-article__figure__caption">
     <span class="text-sm text-gray letter-spacing-default">{{{Figure Caption}}}<span class="text-xxs ml-2 text-uppercase">{{{Credit Text}}}</span></span>
@@ -503,14 +507,15 @@ const templateList = [
         ],
         default: "third float-left"
       },
-      { name: "Image URL" },
+      { name: "Article DOI" },
+      { name: "Image file name",  note: "File names must be lowercase." },
       { name: "Alt Text" },
       { name: "Credit Text" }
     ],
     html: `
 <figure class="news-article__figure border-light-gray {{{Position}}} plain">
   <div class="news-article__figure__image__wrapper">
-    <img src="{{{Image URL}}}" alt="{{{Alt Text}}}" class="news-article__figure__image mb-2">
+    <img src="/admin/dopub/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" class="news-article__figure__image mb-2">
   </div>
   <figcaption class="news-article__figure__caption">
     <span class="text-sm text-gray letter-spacing-default"><span class="text-xxs text-uppercase">{{{Credit Text}}}</span></span>
@@ -530,7 +535,8 @@ const templateList = [
         ],
         default: "news-article__figure--container-width"
       },
-      { name: "Image URL" },
+      { name: "Article DOI" },
+      { name: "Image file name",  note: "File names must be lowercase." },
       { name: "Alt Text" },
       { name: "Figure Caption", type: "textarea" },
       { name: "Credit Text" }
@@ -539,7 +545,7 @@ const templateList = [
 <div class="{{{Width}}}">
   <figure class="news-article__figure border-light-gray plain border-bottom pb-3">
     <div class="news-article__figure__image__wrapper">
-      <img src="{{{Image URL}}}" alt="{{{Alt Text}}}" class="news-article__figure__image mb-2">
+      <img src="/admin/dopub/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" class="news-article__figure__image mb-2">
     </div>
     <figcaption class="news-article__figure__caption">
       <span class="text-sm text-gray letter-spacing-default">{{{Figure Caption}}}<span class="text-xxs ml-2 text-uppercase">{{{Credit Text}}}</span></span>
@@ -562,7 +568,8 @@ const templateList = [
       },
       { name: "Graphic hed" },
       { name: "Graphic explainer", type: "textarea" },
-      { name: "Image URL" },
+      { name: "Article DOI" },
+      { name: "Image file name",  note: "File names must be lowercase." },
       { name: "Alt Text" },
       { name: "Credit Text" }
     ],
@@ -573,7 +580,7 @@ const templateList = [
         <h3 class="text-lg letter-spacing-default">{{{Graphic hed}}}</h3>
         <p>{{{Graphic explainer}}}</p>
     </figcaption>
-     <div class="news-article__figure__image__wrapper"><img class="news-article__figure__image mb-2" src="{{{Image URL}}}" alt="{{{Alt Text}}}" /></div>
+     <div class="news-article__figure__image__wrapper"><img class="news-article__figure__image mb-2" src="/admin/dopub/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" /></div>
      <figcaption class="news-article__figure__caption">
     <span class="text-sm text-gray letter-spacing-default"><span class="text-xxs text-uppercase">{{{Credit Text}}}</span></span>
      </figcaption>
@@ -612,7 +619,8 @@ const templateList = [
     fields: [],
     child: {
       fields: [
-        { name: "Image URL" },
+        { name: "Article DOI" },
+      { name: "Image file name",  note: "File names must be lowercase." },
         { name: "Alt Text" },
         { name: "Figure Caption", type: "textarea" },
         { name: "Credit Text" }
@@ -621,7 +629,7 @@ const templateList = [
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <div class="news-article__figure-img-wrapper">
-              <img src="{{{Image URL}}}" alt="{{{Alt Text}}}" class="news-article__figure-img">
+              <img src="/admin/dopub/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" class="news-article__figure-img">
               <div class="news-article__figure-caption d-none"><span class="text-sm text-gray letter-spacing-default">{{{Figure Caption}}}<span class="text-xxs text-uppercase">{{{Credit Text}}}</span></span></div>
             </div>
           </div>
@@ -691,14 +699,15 @@ const templateList = [
     {
     name: "Static page image",
     fields: [
-      { name: "Image URL" },
+      { name: "Article DOI" },
+      { name: "Image file name",  note: "File names must be lowercase." },
       { name: "Alt Text" },
       { name: "Credit Text (optional)" }
     ],
     html: `
 <figure class="mb-1x">
  <div class="figure__wrapper">
-  <img src="{{{Image URL}}}" alt="{{{Alt Text}}}" class="w-100">
+  <img src="/admin/dopub/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" class="w-100">
  <figcaption class="mt-2 text-xxs text-uppercase text-gray sans-serif">{{{Credit Text (optional)}}}</figcaption>
  </div>
 </figure>
