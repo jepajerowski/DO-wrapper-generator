@@ -623,7 +623,7 @@ const templateList = [
         type: "options",
         options: [
           ["Column-width", " non-featured"],
-          ["Full-width (for use in News Features only)", ""],
+          ["Full-width (for News Feature template only)", " "],
         ],
         default: " non-featured"
       }
@@ -911,6 +911,30 @@ const templateList = [
         </div>
     </div>
     <figcaption class="news-article__figure__caption"><span class="text-sm text-gray letter-spacing-default">{{{Caption}}}<span class="text-xxs ml-2 text-uppercase">{{{Credit Text}}}</span></span></figcaption>
+</figure>
+    `
+  },
+  {
+    name: "Twitter embed",
+    fields: [
+      { name: "Embed code from Twitter" },
+      {
+        name: "Is there a caption?",
+        type: "options",
+        options: [
+          ["No", " plain"],
+          ["Yes", ""],
+        ],
+        default: " plain"
+      },
+      { name: "Caption", type: "textarea", note:"Leave blank if no caption." },
+    ],
+    html: `
+<figure class="news-article__figure border-light-gray half float-right{{{Is there a caption?}}}">
+  <div class="news-article__figure__image__wrapper">
+    {{{Embed code from Twitter}}}
+  </div>
+  <figcaption class="news-article__figure__caption"><span class="text-sm text-gray letter-spacing-default">{{{Caption}}}</span></figcaption>
 </figure>
     `
   }
