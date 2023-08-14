@@ -9,7 +9,7 @@ const templateList = [
     html: `
 <div class="text-black-gray text-decoration-none">
   <div class="quotation bg-transparent">
-    <img src="/specs/products/aaas/releasedAssets/images/quotation-mark.svg" alt="quotation mark" class="quotation__img"/>
+    <img src="/pb-assets/images/styleguide/quotation-mark.svg" alt="quotation mark" class="quotation__img"/>
     <div class="quotation__text">{{{Text}}}</div>
     <ul class="quotation__source list-inline">
       <li class="list-inline-item text-bold">
@@ -236,7 +236,7 @@ const templateList = [
   <h2 class="mb-1x"><span class="mr-2">{{{Title}}}</span></h2>
   <figure class="news-article__figure border-light-gray {{{Position}}}">
   <div class="news-article__figure__image__wrapper">
-    <img src="/admin/dopub/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" class="news-article__figure__image mb-2">
+    <img src="/do/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" class="news-article__figure__image mb-2">
   </div>
   <figcaption class="news-article__figure__caption">
     <span class="text-sm text-gray letter-spacing-default">{{{Figure Caption}}}<span class="text-xxs ml-2 text-uppercase">{{{Credit Text}}}</span></span>
@@ -307,7 +307,7 @@ const templateList = [
 <div class="news-article__tracker bg-very-light-gray px-1x py-1_5x mb-2x">
   <h2 class="h4 title--decorated mb-1x"><span class="text-uppercase mr-2">{{{Title}}}</span></h2>
   <figure class="news-article__tracker news-article__figure plain my-0">
-    <div class="news-article__figure__image__wrapper"><img class="news-article__figure__image mb-2" src="/admin/dopub/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" /></div>
+    <div class="news-article__figure__image__wrapper"><img class="news-article__figure__image mb-2" src="/do/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" /></div>
     <figcaption class="news-article__figure__caption text-sm letter-spacing-default">{{{Figure Caption}}}<span class="text-xxs text-uppercase ml-2">{{{Figure Credit}}}</span></figcaption>
   </figure>
 </div>
@@ -453,7 +453,7 @@ const templateList = [
     <h3 class="text-lg letter-spacing-default">{{{Graphic hed}}}</h3>
     <p>{{{Graphic explainer}}}</p>
   </figcaption>
-  <img src="/admin/dopub/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" class="news-article__figure__image">
+  <img src="/do/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" class="news-article__figure__image">
   <figcaption class="news-article__figure__caption mt-2">
     <span class="text-sm text-gray letter-spacing-default"><span class="text-xxs text-uppercase">{{{Credit Text}}}</span></span>
   </figcaption>
@@ -484,7 +484,7 @@ const templateList = [
     html: `
 <figure class="news-article__figure border-light-gray {{{Position}}}">
   <div class="news-article__figure__image__wrapper">
-    <img src="/admin/dopub/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" class="news-article__figure__image mb-2">
+    <img src="/do/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" class="news-article__figure__image mb-2">
   </div>
   <figcaption class="news-article__figure__caption">
     <span class="text-sm text-gray letter-spacing-default">{{{Figure Caption}}}<span class="text-xxs ml-2 text-uppercase">{{{Credit Text}}}</span></span>
@@ -515,7 +515,7 @@ const templateList = [
     html: `
 <figure class="news-article__figure border-light-gray {{{Position}}} plain">
   <div class="news-article__figure__image__wrapper">
-    <img src="/admin/dopub/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" class="news-article__figure__image mb-2">
+    <img src="/do/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" class="news-article__figure__image mb-2">
   </div>
   <figcaption class="news-article__figure__caption">
     <span class="text-sm text-gray letter-spacing-default"><span class="text-xxs text-uppercase">{{{Credit Text}}}</span></span>
@@ -545,7 +545,7 @@ const templateList = [
 <div class="{{{Width}}}">
   <figure class="news-article__figure border-light-gray plain border-bottom pb-3">
     <div class="news-article__figure__image__wrapper">
-      <img src="/admin/dopub/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" class="news-article__figure__image mb-2">
+      <img src="/do/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" class="news-article__figure__image mb-2">
     </div>
     <figcaption class="news-article__figure__caption">
       <span class="text-sm text-gray letter-spacing-default">{{{Figure Caption}}}<span class="text-xxs ml-2 text-uppercase">{{{Credit Text}}}</span></span>
@@ -580,7 +580,7 @@ const templateList = [
         <h3 class="text-lg letter-spacing-default">{{{Graphic hed}}}</h3>
         <p>{{{Graphic explainer}}}</p>
     </figcaption>
-     <div class="news-article__figure__image__wrapper"><img class="news-article__figure__image mb-2" src="/admin/dopub/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" /></div>
+     <div class="news-article__figure__image__wrapper"><img class="news-article__figure__image mb-2" src="/do/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" /></div>
      <figcaption class="news-article__figure__caption">
     <span class="text-sm text-gray letter-spacing-default"><span class="text-xxs text-uppercase">{{{Credit Text}}}</span></span>
      </figcaption>
@@ -591,9 +591,10 @@ const templateList = [
     {
     name: "News Feature Paired Images (full-width)",
     fields: [
-      { name: "Image URL Left" },
+      { name: "Article DOI" },
+      { name: "Image file name Left",  note: "File names must be lowercase." },
       { name: "Alt Text Left" },
-      { name: "Image URL Right" },
+      { name: "Image file name Right", note: "File names must be lowercase." },
       { name: "Alt Text Right" },
       { name: "Figure Caption", type: "textarea" },
       { name: "Credit Text" }
@@ -602,10 +603,10 @@ const templateList = [
 <figure class="news-article__figure border-light-gray  plain border-bottom pb-3">
   <div class="news-article__figure__two-figures">
     <div class="news-article__figure__image__wrapper">
-      <img src="{{{Image URL Left}}}" alt="{{{Alt Text Left}}}" class="news-article__figure__image">
+      <img src="/do/{{{Article DOI}}}/files/{{{Image file name Left}}}" alt="{{{Alt Text Left}}}" class="news-article__figure__image">
     </div>
     <div class="news-article__figure__image__wrapper">
-      <img src="{{{Image URL Right}}}" alt="{{{Alt Text Right}}}" class="news-article__figure__image">
+      <img src="/do/{{{Article DOI}}}/files/{{{Image file name Right}}}" alt="{{{Alt Text Right}}}" class="news-article__figure__image">
     </div>
   </div>
   <figcaption class="news-article__figure__caption">
@@ -615,45 +616,87 @@ const templateList = [
     `
   },
   {
-    name: "Slideshow",
-    fields: [],
+    name: "Figure: Slideshow",
+    fields: [
+      {
+        name: "Width",
+        type: "options",
+        options: [
+          ["Column-width", " non-featured"],
+          ["Full-width (for News Feature template only)", " "],
+        ],
+        default: " non-featured"
+      }
+    ],
     child: {
       fields: [
         { name: "Article DOI" },
-      { name: "Image file name",  note: "File names must be lowercase." },
+        { name: "Image file name",  note: "File names must be lowercase." },
         { name: "Alt Text" },
         { name: "Figure Caption", type: "textarea" },
         { name: "Credit Text" }
       ],
       html: `
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <div class="news-article__figure-img-wrapper">
-              <img src="/admin/dopub/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" class="news-article__figure-img">
-              <div class="news-article__figure-caption d-none"><span class="text-sm text-gray letter-spacing-default">{{{Figure Caption}}}<span class="text-xxs text-uppercase">{{{Credit Text}}}</span></span></div>
-            </div>
+        <div class="swiper-slide">
+          <div class="news-article__figure-img-wrapper"><img class="news-article__figure-img" src="/do/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}"/>
+            <div class="news-article__figure-caption d-none"><span class="text-sm text-gray letter-spacing-default">{{{Figure Caption}}}<span class="ml-2 text-xxs text-uppercase">{{{Credit Text}}}</span></span></div>
           </div>
         </div>
       `
     },
     html: `
-<div class="news-article__slideshow__wrapper">
-  <a href="#afterSlideshow-vlb" class="sr-only sr-only-focusable">Skip slideshow</a>
-  <div class="news-article__slideshow mb-2">
-    <div class="swiper-container-wrapper">
-      <div data-loop="true" data-items="1" data-slideby="1" data-autoheight="false" data-responsive="" data-speed="2000" data-autoplay="false" data-animation="slide" data-indicators="true" data-arrow="true" data-controls="true" data-stagepadding="0" data-label="Slideshow" class="swiper-container" data-pause-slide="Pause slideshow" data-play-slide="Play slideshow" data-go-to-slide="Go to slide:" data-next-slide="Go to next slide" data-prev-slide="Go to previous slide">
+<div class="news-article__slideshow__wrapper{{{Width}}}"><a class="sr-only sr-only-focusable" href="#afterSlideshow-shi">Skip slideshow</a>
+    <div class="news-article__slideshow mb-2">
+        <div class="swiper-container-wrapper">
+            <div class="swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events" style="cursor: grab;" data-loop="true" data-items="1" data-slideby="1" data-autoheight="false" data-responsive="" data-speed="2000" data-autoplay="false" data-animation="slide" data-indicators="true" data-arrow="true" data-controls="true" data-stagepadding="0" data-label="Slideshow" data-pause-slide="Pause slideshow" data-play-slide="Play slideshow" data-go-to-slide="Go to slide:" data-next-slide="Go to next slide" data-prev-slide="Go to previous slide" aria-roledescription="Slideshow">
+                <div id="swiper-wrapper-e307aee6496d3c8d" class="swiper-wrapper" style="transition-duration: 0ms;" aria-live="polite">
 {{{Child}}}
-      </div>
-      <div class="swiper-button-container">
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-      </div>
+                </div>
+                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+            </div>
+            <div class="swiper-button-container">
+                <div class="swiper-button-prev" tabindex="0" role="button" aria-label="Go to previous slide" aria-controls="swiper-wrapper-e307aee6496d3c8d"><wbr /></div>
+                <div class="swiper-button-next" tabindex="0" role="button" aria-label="Go to next slide" aria-controls="swiper-wrapper-e307aee6496d3c8d"><wbr /></div>
+            </div>
+        </div>
+    </div>
+    <div class="news-article__slideshow-figcaption border-light-gray pb-2">&nbsp;</div>
+    <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets">&nbsp;</div>
+    <span id="afterSlideshow-shi" tabindex="-1"></span>
+</div>
+    `
+  },
+  {
+    name: "Figure: Slider (Juxtapose)",
+    desc: `
+    <strong>Instructions:</strong>
+    <ol>
+      <li>Upload the two image files to the article DO.</li>
+      <li>Go to <a href="https://juxtapose.knightlab.com/#make">juxtapose.knightlab.com/#make</a>.</li>
+      <li>Paste the image URLs using this file path: <code>https://www.science.org/do/<strong>ArticleDOI</strong>/files/<strong>ImageFileName</strong></code></li>
+      <li>Add labels if desired. Do not add credits in Juxtapose (you will add them below). Click the Publish button.</li>
+      <li>Copy the share link (should start with <code>https://cdn.knightlab.com/...</code>) and paste it below.</li>
+    </ol>
+    `,
+    fields: [
+      { name: "Juxtapose link" },
+      { name: "Aspect ratio", type: 'dimensions' },
+      { name: "Figure Caption", type: "textarea" },
+      { name: "Credit Text" }
+    ],
+    html: `
+<figure class="news-article__figure border-light-gray">
+  <div class="news-article__figure__image__wrapper">
+    <div class="news-article__figure__image mb-2" style="position: relative; display: block; max-width: 100%;">
+        <div style="padding-top: {{{Aspect ratio}}};">
+            <iframe class="juxtapose" style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;" src="{{{Juxtapose link}}}" width="100%" height="100%" frameborder="0"></iframe></div>
+        </div>
     </div>
   </div>
-  <figcaption class="border-light-gray pb-2"></figcaption>
-  <div class="swiper-pagination"></div>
-  <span id="afterSlideshow-vlb" tabindex="-1"></span>
-</div>
+  <figcaption class="news-article__figure__caption">
+    <span class="text-sm text-gray letter-spacing-default">{{{Figure Caption}}}<span class="text-xxs ml-2 text-uppercase">{{{Credit Text}}}</span></span>
+  </figcaption>
+</figure>
     `
   },
   {
@@ -707,7 +750,7 @@ const templateList = [
     html: `
 <figure class="mb-1x">
  <div class="figure__wrapper">
-  <img src="/admin/dopub/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" class="w-100">
+  <img src="/do/{{{Article DOI}}}/files/{{{Image file name}}}" alt="{{{Alt Text}}}" class="w-100">
  <figcaption class="mt-2 text-xxs text-uppercase text-gray sans-serif">{{{Credit Text (optional)}}}</figcaption>
  </div>
 </figure>
@@ -804,20 +847,11 @@ const templateList = [
 </div>
     `
   },
+ 
   {
-    name: "Video (Brightcove)",
+    name: "Video (Cadmore)",
     fields: [
       { name: "Video ID" },
-      {
-        name: "Aspect Ratio",
-        type: "options",
-        options: [
-          ["16:9", "56.25"],
-          ["9:16 (vertical)", "177.778"],
-          ["1:1 (square)", "100"]
-        ],
-        default: "56.25"
-      },
       {
         name: "Position",
         type: "options",
@@ -847,11 +881,8 @@ const templateList = [
 
 <figure class="news-article__figure border-light-gray{{{Is there a caption?}}}{{{Position}}}">
   <div class="news-article__figure__image__wrapper">
-    <div class="mb-2 news-article__figure__image" style="position: relative; display: block; max-width: 100%;">
-      <div style="padding-top: {{{Aspect Ratio}}}%;">
-    <iframe src="https://players.brightcove.net/53038991001/a7scWzO7u_default/index.html?videoId={{{Video ID}}}" allowfullscreen webkitallowfullscreen mozallowfullscreen style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;">
-    </iframe>
-      </div>
+    <div class="mb-2 news-article__figure__image">
+      <div class="cmpl_iframe_div"><iframe class="cmpl_iframe" style="border: 0px; height: 100%; margin: 0px; overflow: hidden; width: 100%;" src="https://play.cadmore.media/Player/{{{Video ID}}}" allowfullscreen="allowfullscreen"></iframe></div>
     </div>
   </div>
   <figcaption class="news-article__figure__caption"><span class="text-sm text-gray letter-spacing-default">{{{Caption}}}<span class="text-xxs ml-2 text-uppercase">{{{Credit Text}}}</span></span></figcaption>
@@ -913,6 +944,30 @@ const templateList = [
         </div>
     </div>
     <figcaption class="news-article__figure__caption"><span class="text-sm text-gray letter-spacing-default">{{{Caption}}}<span class="text-xxs ml-2 text-uppercase">{{{Credit Text}}}</span></span></figcaption>
+</figure>
+    `
+  },
+  {
+    name: "Twitter embed",
+    fields: [
+      { name: "Embed code from Twitter" },
+      {
+        name: "Is there a caption?",
+        type: "options",
+        options: [
+          ["No", " plain"],
+          ["Yes", ""],
+        ],
+        default: " plain"
+      },
+      { name: "Caption", type: "textarea", note:"Leave blank if no caption." },
+    ],
+    html: `
+<figure class="news-article__figure border-light-gray half float-right{{{Is there a caption?}}}">
+  <div class="news-article__figure__image__wrapper">
+    {{{Embed code from Twitter}}}
+  </div>
+  <figcaption class="news-article__figure__caption"><span class="text-sm text-gray letter-spacing-default">{{{Caption}}}</span></figcaption>
 </figure>
     `
   }
