@@ -38,6 +38,15 @@ class TemplateSelector extends React.Component {
   }
 }
 
+class TemplateDesc extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return e('div', {dangerouslySetInnerHTML: {__html: this.props.template.desc}})
+  }
+}
+
 class FieldText extends React.Component {
   constructor(props) {
     super(props);
@@ -145,11 +154,64 @@ class FieldTable extends React.Component {
   }
 }
 
+
+class FieldDimensions extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      inputwidth: '',
+      inputheight: '',
+      calcratio: '',
+    };
+  }
+
+  update(){    
+    let width = this.state.inputwidth;
+    let height = this.state.inputheight;
+    let ratio = height / width * 100 + "%";
+    this.setState({calcratio: ratio});
+    this.props.onChange(ratio);
+  }
+
+  render() {
+    return e('table', null,
+      e('tbody', null,
+        e('tr', null,
+          e('td', null, "Image width (px)"),
+          e('td', null,
+            e('input', {
+                type: "number",
+                value: this.state.inputwidth,
+                onChange: (event) => {
+                  this.setState({inputwidth: event.target.value}, () => this.update());
+                }
+            })
+          ),
+          e('td', null, "Image height (px)"),
+          e('td', null,
+            e('input', {
+                type: "number",
+                value: this.state.inputheight,
+                onChange: (event) => {
+                  this.setState({inputheight: event.target.value}, () => this.update());
+                }
+            })
+          ),
+          e('td', null, "Aspect ratio"),
+          e('td', null, this.state.calcratio)
+        )
+      )
+    )
+  }
+}
+
+
 const fieldTypes = {
   text: FieldText,
   textarea: FieldTextArea,
   options: FieldOptions,
-  table: FieldTable
+  table: FieldTable,
+  dimensions: FieldDimensions
 };
 
 class TemplateInput extends React.Component {
@@ -288,6 +350,11 @@ class TemplateApp extends React.Component {
         onSetTemplate: (t) => this.setState({ template: t, values: initTemplate(t), children: [{}] })
       }),
       e('hr'),
+      e(TemplateDesc, {
+        template: this.state.template,
+        values: this.state.values,
+        children: this.state.children
+      }),      
       e(TemplateInputs, {
         template: this.state.template,
         values: this.state.values,

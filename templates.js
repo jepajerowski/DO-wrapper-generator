@@ -616,7 +616,7 @@ const templateList = [
     `
   },
   {
-    name: "Slideshow",
+    name: "Figure: Slideshow",
     fields: [
       {
         name: "Width",
@@ -664,6 +664,39 @@ const templateList = [
     <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets">&nbsp;</div>
     <span id="afterSlideshow-shi" tabindex="-1"></span>
 </div>
+    `
+  },
+  {
+    name: "Figure: Slider (Juxtapose)",
+    desc: `
+    <strong>Instructions:</strong>
+    <ol>
+      <li>Upload the two image files to the article DO.</li>
+      <li>Go to <a href="https://juxtapose.knightlab.com/#make">juxtapose.knightlab.com/#make</a>.</li>
+      <li>Paste the image URLs using this file path: <code>https://www.science.org/do/<strong>ArticleDOI</strong>/files/<strong>ImageFileName</strong></code></li>
+      <li>Add labels if desired. Do not add credits in Juxtapose (you will add them below). Click the Publish button.</li>
+      <li>Copy the share link (should start with <code>https://cdn.knightlab.com/...</code>) and paste it below.</li>
+    </ol>
+    `,
+    fields: [
+      { name: "Juxtapose link" },
+      { name: "Aspect ratio", type: 'dimensions' },
+      { name: "Figure Caption", type: "textarea" },
+      { name: "Credit Text" }
+    ],
+    html: `
+<figure class="news-article__figure border-light-gray">
+  <div class="news-article__figure__image__wrapper">
+    <div class="news-article__figure__image mb-2" style="position: relative; display: block; max-width: 100%;">
+        <div style="padding-top: {{{Aspect ratio}}};">
+            <iframe class="juxtapose" style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;" src="{{{Juxtapose link}}}" width="100%" height="100%" frameborder="0"></iframe></div>
+        </div>
+    </div>
+  </div>
+  <figcaption class="news-article__figure__caption">
+    <span class="text-sm text-gray letter-spacing-default">{{{Figure Caption}}}<span class="text-xxs ml-2 text-uppercase">{{{Credit Text}}}</span></span>
+  </figcaption>
+</figure>
     `
   },
   {
